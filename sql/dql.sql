@@ -6,12 +6,15 @@ SELECT
     c.Diagnostico,
     c.Status
 FROM Pessoa p
-JOIN Paciente pa ON p.Id_pessoa = pa.Id_pessoa
+JOIN Usuario u_p ON p.Id_pessoa = u_p.Id_pessoa
+JOIN Paciente pa ON u_p.Id_usuario = pa.Id_usuario
 JOIN Consulta c ON pa.Id_paciente = c.Id_paciente
 JOIN Medico m ON c.Id_medico = m.Id_medico
-JOIN Pessoa pm ON m.Id_pessoa = pm.Id_pessoa
+JOIN Usuario u_m ON m.Id_usuario = u_m.Id_usuario
+JOIN Pessoa pm ON u_m.Id_pessoa = pm.Id_pessoa
 WHERE p.Nome = 'João Silva'
-AND c.Data_hora BETWEEN '2025-06-05 00:00:00' AND '2025-06-12 14:00:00'
+AND DATE(c.Data_hora) BETWEEN '2025-06-05' AND '2025-06-12'
+AND (HOUR(c.Data_hora) <= 20 OR DATE(c.Data_hora) < '2025-06-12')
 ORDER BY c.Data_hora DESC;
 
 #IDENTIDICA MEDICAMENTOS COM MENOS DE 100 UNIDADES EM ESTOQUE
@@ -31,9 +34,10 @@ SELECT
     c.Data_hora,
     c.Prioridade
 FROM Pessoa p
-JOIN Paciente pa ON p.Id_pessoa = pa.Id_pessoa
+JOIN Usuario u_p ON p.Id_pessoa = u_p.Id_pessoa
+JOIN Paciente pa ON u_p.Id_usuario = pa.Id_usuario
 JOIN Consulta c ON pa.Id_paciente = c.Id_paciente
 JOIN Medico m ON c.Id_medico = m.Id_medico
 WHERE c.Status = 'Pendente'
-AND c.Data_hora <= '2025-06-12 20:00:00'
+AND (DATE(c.Data_hora) < '2025-06-12' OR (DATE(c.Data_hora) = '2025-06-12' AND TIME(c.Data_hora) <= '20:00:00'))
 ORDER BY m.Especialidade, c.Data_hora;

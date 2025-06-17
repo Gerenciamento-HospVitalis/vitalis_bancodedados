@@ -19,18 +19,27 @@ CREATE TABLE Pessoa (
     FOREIGN KEY (Id_endereco) REFERENCES Endereco(Id_endereco)
 );
 
+CREATE TABLE Usuario (
+    Id_usuario INT PRIMARY KEY,
+    Id_pessoa INT,
+    Nome_usuario VARCHAR(50),
+    Senha VARCHAR(100),
+    Tipo_usuario VARCHAR(50),
+    FOREIGN KEY (Id_pessoa) REFERENCES Pessoa(Id_pessoa) ON DELETE CASCADE
+);
+
 CREATE TABLE Medico (
     Id_medico INT PRIMARY KEY,
-    Id_pessoa INT,
+    Id_usuario INT,
     CRM VARCHAR(20),
     UF VARCHAR(2),
     Especialidade VARCHAR(50),
-    FOREIGN KEY (Id_pessoa) REFERENCES Pessoa(Id_pessoa) ON DELETE CASCADE
+    FOREIGN KEY (Id_usuario) REFERENCES Usuario(Id_usuario) ON DELETE CASCADE
 );
 
 CREATE TABLE Paciente (
     Id_paciente INT PRIMARY KEY,
-    Id_pessoa INT,
+    Id_usuario INT,
     Genero VARCHAR(10),
     Celular VARCHAR(15),
     Data_nascimento DATE,
@@ -38,7 +47,7 @@ CREATE TABLE Paciente (
     Nome_responsavel_legal VARCHAR(100),
     Telefone_responsavel_legal VARCHAR(15),
     Cpf_responsavel_legal VARCHAR(14),
-    FOREIGN KEY (Id_pessoa) REFERENCES Pessoa(Id_pessoa) ON DELETE CASCADE
+    FOREIGN KEY (Id_usuario) REFERENCES Usuario(Id_usuario) ON DELETE CASCADE
 );
 
 CREATE TABLE Prontuario (
@@ -120,11 +129,3 @@ CREATE TABLE Medico_Departamento (
     FOREIGN KEY (Id_departamento) REFERENCES Departamento(Id_departamento) ON DELETE CASCADE
 );
 
-CREATE TABLE Usuario (
-    Id_usuario INT PRIMARY KEY,
-    Id_pessoa INT,
-    Nome_usuario VARCHAR(50),
-    Senha VARCHAR(100),
-    Tipo_usuario VARCHAR(50),
-    FOREIGN KEY (Id_pessoa) REFERENCES Pessoa(Id_pessoa) ON DELETE CASCADE
-);

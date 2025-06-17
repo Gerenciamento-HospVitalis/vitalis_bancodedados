@@ -43,10 +43,10 @@ BEGIN
     INSERT INTO Consulta (Id_consulta, Id_paciente, Id_medico, Data_hora, Diagnostico, Observacoes, Prioridade, Status)
     VALUES (18, 10, 6, '2025-06-13 20:45:00', 'Fratura', 'Imobilizar', 'Alta', 'Agendada');
     UPDATE Leito
-    SET Id_paciente = 10, Status = 'Ocupado'
-    WHERE Id_leito = 10;
+    SET Id_paciente = 3, Status = 'Ocupado'
+    WHERE Id_leito = 3;
     IF (SELECT COUNT(*) FROM Consulta WHERE Id_consulta = 18) = 1 
-       AND (SELECT Status FROM Leito WHERE Id_leito = 10) = 'Ocupado' THEN
+       AND (SELECT Status FROM Leito WHERE Id_leito = 3) = 'Ocupado' THEN
         COMMIT;
     ELSE
         ROLLBACK;

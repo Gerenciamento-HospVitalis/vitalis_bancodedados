@@ -23,7 +23,19 @@ INSERT INTO Pessoa (Id_pessoa, Id_endereco, Nome, CPF, Telefone, Email) VALUES
 (9, 9, 'Lucas Mendes', '901.234.567-88', '(61) 98765-4329', 'lucas.mendes@email.com'),
 (10, 10, 'Beatriz Rocha', '012.345.678-99', '(27) 98765-4330', 'beatriz.rocha@email.com');
 
-INSERT INTO Medico (Id_medico, Id_pessoa, CRM, UF, Especialidade) VALUES
+INSERT INTO Usuario (Id_usuario, Id_pessoa, Nome_usuario, Senha, Tipo_usuario) VALUES
+(1, 1, 'joao.med', 'senha123', 'Médico'),
+(2, 2, 'maria.med', 'senha456', 'Médico'),
+(3, 3, 'pedro.med', 'senha789', 'Médico'),
+(4, 4, 'ana.user', 'senha101', 'Recepcionista'),
+(5, 5, 'carlos.enf', 'senha202', 'Enfermeiro'),
+(6, 6, 'fernanda.user', 'senha303', 'Recepcionista'),
+(7, 7, 'rafael.med', 'senha404', 'Médico'),
+(8, 8, 'juliana.enf', 'senha505', 'Enfermeiro'),
+(9, 9, 'lucas.pac', 'senha606', 'Paciente'),
+(10, 10, 'beatriz.pac', 'senha707', 'Paciente');
+
+INSERT INTO Medico (Id_medico, Id_usuario, CRM, UF, Especialidade) VALUES
 (1, 1, 'CRM12345', 'SP', 'Cardiologia'),
 (2, 2, 'CRM23456', 'RJ', 'Ortopedia'),
 (3, 3, 'CRM34567', 'MG', 'Pediatria'),
@@ -35,17 +47,17 @@ INSERT INTO Medico (Id_medico, Id_pessoa, CRM, UF, Especialidade) VALUES
 (9, 9, 'CRM90123', 'DF', 'Psiquiatria'),
 (10, 10, 'CRM01234', 'ES', 'Cirurgia');
 
-INSERT INTO Paciente (Id_paciente, Id_pessoa, Genero, Celular, Data_nascimento, Numero_cartao_sus, Nome_responsavel_legal, Telefone_responsavel_legal, Cpf_responsavel_legal) VALUES
-(1, 1, 'Feminino', '(11) 98765-4321', '1990-05-15', 'SUS1234567', 'Maria Silva', '(11) 98765-4322', '234.567.890-11'),
-(2, 2, 'Masculino', '(21) 98765-4322', '1985-09-20', 'SUS2345678', 'João Oliveira', '(21) 98765-4323', '345.678.901-22'),
-(3, 3, 'Feminino', '(31) 98765-4323', '2000-03-10', 'SUS3456789', 'Ana Souza', '(31) 98765-4324', '456.789.012-33'),
-(4, 4, 'Masculino', '(41) 98765-4324', '1975-12-25', 'SUS4567890', 'Pedro Costa', '(41) 98765-4325', '567.890.123-44'),
-(5, 5, 'Feminino', '(51) 98765-4325', '1995-07-30', 'SUS5678901', 'Lucia Lima', '(51) 98765-4326', '678.901.234-55'),
-(6, 6, 'Masculino', '(47) 98765-4326', '1988-11-05', 'SUS6789012', 'Rafael Alves', '(47) 98765-4327', '789.012.345-66'),
-(7, 7, 'Feminino', '(71) 98765-4327', '2002-04-18', 'SUS7890123', 'Juliana Santos', '(71) 98765-4328', '890.123.456-77'),
-(8, 8, 'Masculino', '(81) 98765-4328', '1992-08-12', 'SUS8901234', 'Lucas Pereira', '(81) 98765-4329', '901.234.567-88'),
-(9, 9, 'Feminino', '(61) 98765-4329', '1980-01-25', 'SUS9012345', 'Beatriz Mendes', '(61) 98765-4330', '012.345.678-99'),
-(10, 10, 'Masculino', '(27) 98765-4330', '1998-06-14', 'SUS0123456', 'Carlos Rocha', '(27) 98765-4331', '123.456.789-00');
+INSERT INTO Paciente (Id_paciente, Id_usuario, Genero, Celular, Data_nascimento, Numero_cartao_sus, Nome_responsavel_legal, Telefone_responsavel_legal, Cpf_responsavel_legal) VALUES
+(1, 9, 'Feminino', '(11) 98765-4321', '1990-05-15', 'SUS1234567', 'Maria Silva', '(11) 98765-4322', '234.567.890-11'),
+(2, 10, 'Masculino', '(21) 98765-4322', '1985-09-20', 'SUS2345678', 'João Oliveira', '(21) 98765-4323', '345.678.901-22'),
+(3, 1, 'Feminino', '(31) 98765-4323', '2000-03-10', 'SUS3456789', 'Ana Souza', '(31) 98765-4324', '456.789.012-33'),
+(4, 2, 'Masculino', '(41) 98765-4324', '1975-12-25', 'SUS4567890', 'Pedro Costa', '(41) 98765-4325', '567.890.123-44'),
+(5, 3, 'Feminino', '(51) 98765-4325', '1995-07-30', 'SUS5678901', 'Lucia Lima', '(51) 98765-4326', '678.901.234-55'),
+(6, 4, 'Masculino', '(47) 98765-4326', '1988-11-05', 'SUS6789012', 'Rafael Alves', '(47) 98765-4327', '789.012.345-66'),
+(7, 5, 'Feminino', '(71) 98765-4327', '2002-04-18', 'SUS7890123', 'Juliana Santos', '(71) 98765-4328', '890.123.456-77'),
+(8, 6, 'Masculino', '(81) 98765-4328', '1992-08-12', 'SUS8901234', 'Lucas Pereira', '(81) 98765-4329', '901.234.567-88'),
+(9, 7, 'Feminino', '(61) 98765-4329', '1980-01-25', 'SUS9012345', 'Beatriz Mendes', '(61) 98765-4330', '012.345.678-99'),
+(10, 8, 'Masculino', '(27) 98765-4330', '1998-06-14', 'SUS0123456', 'Carlos Rocha', '(27) 98765-4331', '123.456.789-00');
 
 INSERT INTO Prontuario (Id_prontuario, Id_paciente, Alergias, Doencas, Tipo_sanguineo) VALUES
 (1, 1, 'Penicilina', 'Hipertensão', 'A+'),
@@ -143,37 +155,27 @@ INSERT INTO Medico_Departamento (Id_medico, Id_departamento) VALUES
 (9, 9),
 (10, 10);
 
-INSERT INTO Usuario (Id_usuario, Id_pessoa, Nome_usuario, Senha, Tipo_usuario) VALUES
-(1, 1, 'joao.med', 'senha123', 'Médico'),
-(2, 2, 'maria.med', 'senha456', 'Médico'),
-(3, 3, 'pedro.med', 'senha789', 'Médico'),
-(4, 4, 'ana.user', 'senha101', 'Recepcionista'),
-(5, 5, 'carlos.enf', 'senha202', 'Enfermeiro'),
-(6, 6, 'fernanda.user', 'senha303', 'Recepcionista'),
-(7, 7, 'rafael.med', 'senha404', 'Médico'),
-(8, 8, 'juliana.enf', 'senha505', 'Enfermeiro'),
-(9, 9, 'lucas.pac', 'senha606', 'Paciente'),
-(10, 10, 'beatriz.pac', 'senha707', 'Paciente');
-
 INSERT INTO Exame (Id_exame, Id_paciente, Id_medico, Data_solicitacao, Data_realizacao, Tipo_exame, Resultado, Status) VALUES
 (11, 1, 1, '2025-06-12 14:30:00', NULL, 'Eletrocardiograma', '', 'Pendente'),
 (12, 5, 5, '2025-06-12 18:30:00', NULL, 'Teste de gripe', '', 'Pendente'); 
 
 #SELECIONA DETERMINADAS INFORMAÇÕES
 SELECT 
-    p.Nome AS Paciente,
-    c.Data_hora,
-    c.Prioridade,
-    pm.Nome AS Medico,
-    c.Status
+  p.Nome       AS Paciente,
+  c.Data_hora,
+  c.Prioridade,
+  pm.Nome      AS Medico,
+  c.Status
 FROM Pessoa p
-JOIN Paciente pa ON p.Id_pessoa = pa.Id_pessoa
-JOIN Consulta c ON pa.Id_paciente = c.Id_paciente
-JOIN Medico m ON c.Id_medico = m.Id_medico
-JOIN Pessoa pm ON m.Id_pessoa = pm.Id_pessoa
+JOIN Usuario u_p ON p.Id_pessoa   = u_p.Id_pessoa
+JOIN Paciente pa ON u_p.Id_usuario = pa.Id_usuario
+JOIN Consulta c ON pa.Id_paciente  = c.Id_paciente
+JOIN Medico m   ON c.Id_medico     = m.Id_medico
+JOIN Usuario u_m ON m.Id_usuario  = u_m.Id_usuario
+JOIN Pessoa pm  ON u_m.Id_pessoa   = pm.Id_pessoa
 WHERE DATE(c.Data_hora) = '2025-06-12'
-AND c.Prioridade = 'Alta'
-AND c.Status = 'Agendada'
+  AND c.Prioridade = 'Alta'
+  AND c.Status     = 'Agendada'
 ORDER BY c.Data_hora;
 
 SELECT 
@@ -184,11 +186,13 @@ SELECT
     e.Data_solicitacao,
     pm.Nome AS Medico_Responsavel
 FROM Pessoa p
-JOIN Paciente pa ON p.Id_pessoa = pa.Id_pessoa
+JOIN Usuario u_p ON p.Id_pessoa = u_p.Id_pessoa
+JOIN Paciente pa ON u_p.Id_usuario = pa.Id_usuario
 JOIN Leito l ON pa.Id_paciente = l.Id_paciente
 JOIN Exame e ON pa.Id_paciente = e.Id_paciente
 JOIN Medico m ON e.Id_medico = m.Id_medico
-JOIN Pessoa pm ON m.Id_pessoa = pm.Id_pessoa
+JOIN Usuario u_m ON m.Id_usuario = u_m.Id_usuario
+JOIN Pessoa pm ON u_m.Id_pessoa = pm.Id_pessoa
 WHERE l.Status = 'Ocupado'
 AND e.Status = 'Pendente'
 ORDER BY l.Numero_leito;
@@ -201,7 +205,8 @@ SELECT
     pr.Duracao,
     c.Data_hora
 FROM Pessoa p
-JOIN Paciente pa ON p.Id_pessoa = pa.Id_pessoa
+JOIN Usuario u_p ON p.Id_pessoa = u_p.Id_pessoa
+JOIN Paciente pa ON u_p.Id_usuario = pa.Id_usuario
 JOIN Consulta c ON pa.Id_paciente = c.Id_paciente
 JOIN Prescricao pr ON c.Id_consulta = pr.Id_consulta
 JOIN Medicamento m ON pr.Id_medicamento = m.Id_medicamento
@@ -214,7 +219,8 @@ SELECT
     pr.Alergias,
     pr.Doencas
 FROM Pessoa p
-JOIN Paciente pa ON p.Id_pessoa = pa.Id_pessoa
+JOIN Usuario u_p ON p.Id_pessoa = u_p.Id_pessoa
+JOIN Paciente pa ON u_p.Id_usuario = pa.Id_usuario
 JOIN Prontuario pr ON pa.Id_paciente = pr.Id_paciente
 WHERE pr.Alergias != 'Nenhuma'
 ORDER BY p.Nome;
